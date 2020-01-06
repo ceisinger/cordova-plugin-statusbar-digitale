@@ -137,7 +137,7 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
 
     setting  = @"StatusBarStyle";
     if ([self settingForKey:setting]) {
-        [self setStatusBarStyle:[self settingForKey:setting]];
+        [self preferredStatusBarStyle:[self settingForKey:setting]];
     }
 
     setting  = @"StatusBarDefaultScrollToTop";
@@ -272,11 +272,11 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
         [self refreshStatusBarAppearance];
 
     } else {
-        [[UIApplication sharedApplication] setStatusBarStyle:style];
+        [[UIApplication sharedApplication] preferredStatusBarStyle:style];
     }
 }
 
-- (void) setStatusBarStyle:(NSString*)statusBarStyle
+- (void) preferredStatusBarStyle:(NSString*)statusBarStyle
 {
     // default, lightContent, blackTranslucent, blackOpaque
     NSString* lcStatusBarStyle = [statusBarStyle lowercaseString];
